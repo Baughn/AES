@@ -3,8 +3,8 @@ module Codec.Crypto.AES(
   Mode(..), Direction(..), crypt, crypt'
   ) where
 
-import qualified Codec.Crypto.AES.ST as AES
-import Codec.Crypto.AES.ST(Mode(..), Direction(..))
+import qualified Codec.Crypto.AES.Monad as AES
+import Codec.Crypto.AES.Monad(Mode(..), Direction(..))
 import qualified Data.ByteString as B
 import qualified Data.ByteString.Lazy as BL
 
@@ -15,7 +15,7 @@ crypt :: Mode
         -> Direction 
         -> BL.ByteString -- ^ Bytestring to encrypt/decrypt
         -> BL.ByteString
-crypt mode key iv dir bs = AES.execAES mode key iv dir (AES.crypt bs)
+crypt mode key iv dir bs = snd $ AES.runAES mode key iv dir (AES.crypt bs)
 
 -- | Encryption/decryption for strict bytestrings
 crypt' :: Mode
@@ -24,4 +24,4 @@ crypt' :: Mode
          -> Direction 
          -> B.ByteString -- ^ Bytestring to encrypt/decrypt
          -> B.ByteString
-crypt' mode key iv dir bs = B.concat $ BL.toChunks $ AES.execAES mode key iv dir (AES.crypt bs)
+crypt' mode key iv dir bs = B.concat $ BL.toChunks $ snd $ AES.runAES mode key iv dir (AES.crypt bs)
