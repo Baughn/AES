@@ -1,6 +1,6 @@
 -- | An occasionally pure, monadic interface to AES
 module Codec.Crypto.AES.Monad(
-  AES, Mode(..), Direction(..), Cryptable(..), runAEST, runAES
+  AES, AEST, Mode(..), Direction(..), Cryptable(..), runAEST, runAES
   ) where
 
 import qualified Codec.Crypto.AES.IO as AES
