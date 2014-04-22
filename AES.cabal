@@ -1,7 +1,7 @@
 Name: AES
 Synopsis: Fast AES encryption/decryption for bytestrings
 Description: A zero-copy binding to Brian Gladman's AES implementation, including a copy of that implementation
-Version: 0.2.8
+Version: 0.2.9
 License: BSD3
 License-file: COPYING
 Copyright: Copyright (c) 2009 University of Tromsø
