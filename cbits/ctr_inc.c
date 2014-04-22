@@ -1,3 +1,4 @@
+#include "brg_types.h"
 #include "aesopt.h"
 #include "ctr_inc.h"
 #include <stdio.h>

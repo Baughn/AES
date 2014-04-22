@@ -10,7 +10,6 @@ import qualified Data.ByteString.Internal as BI
 import Foreign
 import Control.Applicative
 import Control.Monad
-import Numeric
 
 #include "aesopt.h"
 #include "aes.h"

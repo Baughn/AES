@@ -11,12 +11,11 @@ import Prelude hiding(head)
 import Codec.Crypto.AES.IO
 import Control.Concurrent.MVar
 import qualified Data.ByteString as B
-import qualified Data.ByteString.Lazy as BL
 import Data.List
 
 -- | Randomness from a system source of nonsense such as /dev/random
 randBytes :: Int -> IO B.ByteString
-randBytes n = withFile "/dev/urandom" ReadMode $ \h -> B.hGet h n
+randBytes n = withFile "/dev/random" ReadMode $ \h -> B.hGet h n
 
 {-# NOINLINE ctx #-}
 ctx :: MVar AESCtx

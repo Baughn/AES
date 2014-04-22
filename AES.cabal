@@ -1,7 +1,7 @@
 Name: AES
 Synopsis: Fast AES encryption/decryption for bytestrings
 Description: A zero-copy binding to Brian Gladman's AES implementation, including a copy of that implementation
-Version: 0.2.5
+Version: 0.2.8
 License: BSD3
 License-file: COPYING
 Copyright: Copyright (c) 2009 University of Tromsø
@@ -18,7 +18,7 @@ Extra-source-files: cbits/aes.h, cbits/aesopt.h, cbits/aestab.h,
 
 Library
   Build-Depends:
-        base >= 4 && < 5 , bytestring, monads-tf >= 0.0.0.1 && < 0.1, transformers >= 0.1.4.0 && < 0.2,
+        base >= 4 && < 5 , bytestring, monads-tf >= 0.1, transformers >= 0.2,
         random, cereal >= 0.2
   Extensions:
         ForeignFunctionInterface,
