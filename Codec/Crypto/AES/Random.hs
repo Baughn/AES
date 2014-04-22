@@ -1,5 +1,5 @@
 -- | This module provides a cryptographically secure PRNG based on
--- AES, reading the seed from /dev/random
+-- AES, reading the seed from /dev/urandom
 module Codec.Crypto.AES.Random(randBytes,prandBytes,AESGen,newAESGen) where
 
 import Data.Serialize
@@ -13,9 +13,9 @@ import Control.Concurrent.MVar
 import qualified Data.ByteString as B
 import Data.List
 
--- | Randomness from a system source of nonsense such as /dev/random
+-- | Randomness from a system source of nonsense such as /dev/urandom
 randBytes :: Int -> IO B.ByteString
-randBytes n = withFile "/dev/random" ReadMode $ \h -> B.hGet h n
+randBytes n = withFile "/dev/urandom" ReadMode $ \h -> B.hGet h n
 
 {-# NOINLINE ctx #-}
 ctx :: MVar AESCtx
